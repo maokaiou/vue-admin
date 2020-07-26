@@ -27,7 +27,8 @@
 
 <script>
 export default {
-  data () {
+  name: "login",
+  data() {
     return {
       // 登录表单的数据绑定对象
       form: {
@@ -69,7 +70,7 @@ export default {
       })
     }
   }
-}
+};
 </script>
 <style lang='scss' scoped>
   .login-container{
