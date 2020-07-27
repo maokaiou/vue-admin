@@ -11,6 +11,13 @@ import axios from 'axios'
 // 设置基地址
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 axios.defaults.timeout = '8000'
+axios.interceptors.request.use(config => {
+  // config代表请求体
+  // console.log(config)
+  // 要在请求头中携带登录后的token，给请求头添加属性Authorization 该值为token
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
 // 将axios挂载到vue的原型对象上
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
